@@ -26,9 +26,9 @@ while(my $line = <FILE>) {
     }
     
     @lineChars = split(//, $line);
-	  if ($lineChars[$horizontalPosition] =~ "#") {
-		    $numTrees++;
-	  }
+    if ($lineChars[$horizontalPosition] =~ "#") {
+        $numTrees++;
+    }
 }
 
 printf "numTrees=$numTrees\n";
