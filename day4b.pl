@@ -52,31 +52,31 @@ while(<FILE>) {
         ($key,$value) = split(/:/, $pair);
         
         if ($key eq "byr") {
-            if ($value =~ /\d\d\d\d/ && $value >= 1920 && $value <= 2002) {
+            if ($value =~ /^\d\d\d\d$/ && $value >= 1920 && $value <= 2002) {
                 $byr = true;
             }
         }
         
         if ($key eq "iyr") { 
-            if ($value =~ /\d\d\d\d/ && $value >= 2010 && $value <= 2020) {
+            if ($value =~ /^\d\d\d\d$/ && $value >= 2010 && $value <= 2020) {
                 $iyr = true;
             }
         }
         
         if ($key eq "eyr") { 
-            if ($value =~ /\d\d\d\d/ && $value >= 2020 && $value <= 2030) {
+            if ($value =~ /^\d\d\d\d$/ && $value >= 2020 && $value <= 2030) {
                 $eyr = true;
             }
         }
         
         if ($key eq "hgt") { 
-            if ($value =~ /(\d+)cm/) {
+            if ($value =~ /^(\d+)cm$/) {
                 if ($1 >= 150 && $1 <= 193) {
                     $hgt = true;
                 }
             }
             
-            if ($value =~ /(\d+)in/) {
+            if ($value =~ /^(\d+)in$/) {
                 if ($1 >= 59 && $1 <= 76) {
                     $hgt = true; 
                 }
@@ -84,19 +84,19 @@ while(<FILE>) {
         }
         
         if ($key eq "hcl") { 
-            if ($value =~ /#[0-9a-f]{6}/) {
+            if ($value =~ /^#[0-9a-f]{6}$/) {
                 $hcl = true;
             }
         }
         
         if ($key eq "ecl") {
-            if ($value =~ /amb|blu|brn|gry|grn|hzl|oth/) {
+            if ($value =~ /^amb|blu|brn|gry|grn|hzl|oth$/) {
                 $ecl = true; 
             }
         }
         
         if ($key eq "pid") { 
-            if ($value =~ /[0-9]{9}/) {
+            if ($value =~ /^[0-9]{9}$/) {
                 $pid = true;
             }
         }
